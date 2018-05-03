@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="app.css">
+    <title>IPFS - Transfert de Documents</title>
+  </head>
+
+  <body ondragover="event.preventDefault()">
+    <div class="dragover-popup">
+      <h1>Upload</h1>
+    </div>
+
+    <header>
+      <h1>IPFS | Transfert de documents</h1>
+      <i id="note">Charger un fichier</i>
+    </header>
+
+    <main>
+      <pre id="errors" class="hidden"></pre>
+
+      <div class="columns">
+        <div>
+          <div class="box">
+            <h2>IPFS</h2>
+            <div class="buttons">
+              <button id="start" type="button">Démarrer IPFS</button>
+              <button id="stop" disabled type="button">Arrêter IPFS</button>
+            </div>
+            <div class="disabled">
+              <h3>ID :</h3>
+              <pre class='id-container'>N/A</pre>
+              <h3>Adresse :</h3>
+              <ul class='addresses-container'>
+                <li>Pas encore dispo</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="box disabled" id="peers">
+            <h2>Serveur</h2>
+            <input disabled type="text" id="peer-input" placeholder="..."/>
+            <button disabled id="peer-btn" class="full">Connecté à</button>
+            <i>En attente...</i>
+            <ul></ul>
+          </div>
+        </div>
+
+        <div class="box disabled">
+          <h2>Fichier</h2>
+
+          <input disabled id="multihash" type="text" placeholder="..."/>
+          <button disabled id="cat" type="button" class="full">Go</button>
+          
+          <p id="file-status"></p>
+
+          <table id="file-history">
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>ID</th>
+                <th>Taille</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+    </main>
+
+    <!-- The IPFS node module -->
+    <script src="https://unpkg.com/ipfs/dist/index.js"></script>
+    <script src="app.js"></script>
+    <!-- <script src="js/bundle.js"></script> -->
+  </body>
+</html>
